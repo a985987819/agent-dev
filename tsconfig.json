@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    // 编译目标:ES2022 覆盖 Node 20+ 的全部能力,生成代码无需降级
+    "target": "ES2022",
+    // 输出模块格式:ESM(与 package.json 的 "type": "module" 对应)
+    "module": "ESNext",
+    // 模块解析策略:bundler 模式最接近 tsx/vite 的真实运行行为,
+    // 允许省略扩展名导入,避免 NodeNext 的严格 .js 后缀要求
+    "moduleResolution": "bundler",
+    "lib": ["ES2022"],
+    // 严格模式全套:agent 项目里类型即文档,any 会掩盖工具参数的结构错误
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "noImplicitOverride": true,
+    // 跳过第三方库的类型检查(它们由各自作者负责),加快 tsc 速度
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "forceConsistentCasingInFileNames": true,
+    // 只做类型检查不产出 JS:运行交给 tsx(直接执行 TS),省去构建步骤
+    "noEmit": true,
+    "types": ["node"]
+  },
+  "include": ["src"]
+}
